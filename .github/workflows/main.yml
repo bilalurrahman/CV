@@ -31,20 +31,9 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-    - name: Firebase App Distribution
-      uses: wzieba/Firebase-Distribution-Github-Action@v1.2.1
-      with:
-        # App id can be found on the General Settings page
-        appId: cv-proj-5b862
-        # Upload token - see Firebase CLI Reference
-        token: 1//09Af3cCH--IIgCgYIARAAGAkSNwF-L9Irfu4nY7tYE7zeclpGzR--kjeU_AsTJrXw1qUk3fZbqhqswV_1m1i2eB3HL6WZZlh6lB8
-        # Artifact to upload (.apk or .ipa)
-        file: public
-        # Distribution groups
-        groups: # optional
-        # Release notes visible on release page
-        releaseNotes: # optional
-        # Release notes visible on release page
-        releaseNotesFile: # optional
-        # Flag that can included to print verbose log output.
-        debug: # optional
+    - name: custom GitHub deployment
+      run: |
+        npm install -g firebase-tools
+        firebase list --token '1//09Af3cCH--IIgCgYIARAAGAkSNwF-L9Irfu4nY7tYE7zeclpGzR--kjeU_AsTJrXw1qUk3fZbqhqswV_1m1i2eB3HL6WZZlh6lB8' 
+        firebase use cv-proj-5b862
+        firebase deploy
