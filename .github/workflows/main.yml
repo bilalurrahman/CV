@@ -36,6 +36,10 @@ jobs:
     - name: Checkout the repository
       uses: actions/checkout@master
       
+    - name: install eslint
+      run: |
+        npm install eslint --save-dev
+      
     - name: Deploy to Firebase
       uses: w9jds/firebase-action@master
       with:
