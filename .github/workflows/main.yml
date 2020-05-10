@@ -33,16 +33,3 @@ jobs:
         echo test, and deploy your project.
     
  
-    - name: Checkout the repository
-      uses: actions/checkout@master
-      
-    - name: install eslint
-      run: |
-        npm install eslint --save-dev
-      
-    - name: Deploy to Firebase
-      uses: w9jds/firebase-action@master
-      with:
-          args:  deploy --token "1//09Af3cCH--IIgCgYIARAAGAkSNwF-L9Irfu4nY7tYE7zeclpGzR--kjeU_AsTJrXw1qUk3fZbqhqswV_1m1i2eB3HL6WZZlh6lB8"
-      env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
