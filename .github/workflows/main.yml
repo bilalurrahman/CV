@@ -31,9 +31,14 @@ jobs:
       run: |
         echo Add other actions to build,
         echo test, and deploy your project.
-    - name: custom GitHub deployment
-      run: |
+    
+ 
+    - name: Checkout the repository
+      uses: actions/checkout@master
       
-        firebase list --token '1//09Af3cCH--IIgCgYIARAAGAkSNwF-L9Irfu4nY7tYE7zeclpGzR--kjeU_AsTJrXw1qUk3fZbqhqswV_1m1i2eB3HL6WZZlh6lB8' 
-        firebase use cv-proj-5b862
-        firebase deploy
+    - name: Deploy to Firebase
+      uses: w9jds/firebase-action@master
+      with:
+          args: deploy --only hosting
+      env:
+          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
