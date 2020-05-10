@@ -4,6 +4,8 @@ node_js:
 script:
  - echo "Deploying to firebase!!"
 install:
+  - npm install -g eslint
   - npm install -g firebase-tools
 after_success:
+  - ./node_modules/.bin/eslint --init
   - firebase deploy --project cv-proj-5b862 --token $FIREBASE_TOKEN
